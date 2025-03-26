@@ -31,24 +31,33 @@ Application d'analyse avancée pour détecter les comportements suspects dans le
 2. Décompressez le dossier où vous voulez
 
 ### Étape 3 : Installer les Dépendances
+
 Ouvrez un terminal dans le dossier du projet et exécutez :
+
+Il est import de ce placer sur le fichier decompressé :
+```bash
+cd chemin\vers\dossier\decompressé (à remplacer)
+```
+
+Installation de bibliothéques nécessaires :
 ```bash
 pip install -r requirements.txt
 ```
+
 
 ## 📁 Structure des Fichiers
 ```
 audioprotheses/
 ├── main.py              - Code principal de l'application
 ├── requirements.txt     - Liste des dépendances
-├── regions.csv          - Fichier de mapping des régions (à télécharger)
+├── points-extremes-des-departements-metropolitains-de-france.csv          - Fichier de mapping des régions (présent sur le ZIP telechargé)
 └── donnees_audioprotheses.csv  - Jeu de données principal (à fournir par l'utilisateur)
 ```
 
 ## 🖥️ Utilisation
 1. Placez votre fichier CSV de données dans le dossier principal
 2. Soyez sur d'avoir le fichier "points-extremes-des-departements-metropolitains-de-france.csv" dans votre dossier de travail
-3. Lancez l'application avec :
+3. Lancez l'application sur le terminal avec :
 ```bash
 streamlit run main.py
 ```
