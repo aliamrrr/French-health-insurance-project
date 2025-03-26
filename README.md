@@ -11,10 +11,8 @@ Application d'analyse avancée pour détecter les comportements suspects dans le
 - [📁 Structure des Fichiers](#-structure-des-fichiers)
 - [🖥️ Utilisation](#%EF%B8%8F-utilisation)
 - [✨ Fonctionnalités](#-fonctionnalités)
-- [📸 Captures d'Écran](#-captures-décran)
 - [📚 Dépendances](#-dépendances)
-- [🤝 Contribution](#-contribution)
-- [📄 Licence](#-licence)
+
 
 ## 🔧 Prérequis
 - Ordinateur Windows/MacOS/Linux
