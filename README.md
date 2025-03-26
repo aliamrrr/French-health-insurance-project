@@ -21,13 +21,13 @@ Application d'analyse avancée pour détecter les comportements suspects dans le
 
 ## 🚀 Installation
 ### Étape 1 : Installer Python
-1. Téléchargez Python 3.9+ sur [python.org](https://www.python.org/downloads/)
+1. Téléchargez Python 3.9+ (la version 3.11 a été utilisé pour implémenter ce projet) sur [python.org](https://www.python.org/downloads/) 
 2. **Windows** : Cochez "Add Python to PATH" pendant l'installation  
    **MacOS** : Utilisez le package .pkg  
    **Linux** : `sudo apt-get install python3`
 
 ### Étape 2 : Télécharger les Fichiers
-1. [Téléchargez le dossier du projet (.ZIP)](https://github.com/votrecompte/audioprotheses/archive/main.zip)
+1. [Téléchargez le dossier du projet (.ZIP)](https://github.com/aliamrrr/procom/archive/main.zip)
 2. Décompressez le dossier où vous voulez
 
 ### Étape 3 : Installer les Dépendances
