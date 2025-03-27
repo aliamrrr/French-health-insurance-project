@@ -9,11 +9,8 @@ import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
-import shap
 # Fonctions implementées
 from utils import *
-
-
 
 
 # Indicateurs
@@ -166,8 +163,8 @@ def main():
 
                 with sub_tab1:  # Indicateurs et comparaisons
                     st.write("Comparaison du Délai prescription-facturation")
-                    mean_anomalies = anomalies['Délai prescription-facturation'].mean()
-                    mean_normales = normales['Délai prescription-facturation'].mean()
+                    mean_anomalies = anomalies['Delai_Prescription_Facturation'].mean()
+                    mean_normales = normales['Delai_Prescription_Facturation'].mean()
                     categories = ['Anomalies', 'Normales']
                     means = [mean_anomalies, mean_normales]
 
@@ -192,18 +189,19 @@ def main():
                     
                     st.write("Distribution des Distances Beneficiare - etablisssement dans les Anomalies")
                     fig, ax = plt.subplots(figsize=(10, 6))
-                    sns.histplot(anomalies['Distance pr etab (km)'], bins=30, kde=True, color='orange', ax=ax)
+                    sns.histplot(anomalies['Distance_Prescripteur_Etablissement_km'], bins=30, kde=True, color='orange', ax=ax)
                     ax.set_title("Distribution des Distances (Anomalies)", fontsize=16)
-                    ax.set_xlabel('Distance pr etab (km)', fontsize=12)
+                    ax.set_xlabel('Distance_Prescripteur_Etablissement_km', fontsize=12)
                     ax.set_ylabel("Fréquence", fontsize=12)
 
                     st.pyplot(fig)
 
                                         
-                                        
+                    st.write(anomalies.columns)   
+
                     st.write("Distribution des Distances Prescripteur - etablissement dans les Anomalies")
                     fig, ax = plt.subplots(figsize=(10, 6))
-                    sns.histplot(anomalies['Distance benef ex (km)'], bins=30, kde=True, color='orange', ax=ax)
+                    sns.histplot(anomalies['Distance_Beneficiaire_Etablissement_km'], bins=30, kde=True, color='orange', ax=ax)
                     ax.set_title("Distribution des Distances (Anomalies)", fontsize=16)
                     ax.set_xlabel("Distance benef ex (km)", fontsize=12)
                     ax.set_ylabel("Fréquence", fontsize=12)
@@ -215,7 +213,7 @@ def main():
 
                     # Top 3 dans les anomalies
                     top3_anomalies = (
-                        anomalies.groupby('N° PS exécutant Statistique')['Frequence_dist_suspecte']
+                        anomalies.groupby('N° PS exécutant Statistique')['Frequence_Distance_Suspecte']
                         .mean()
                         .nlargest(3)
                         .reset_index()
@@ -225,7 +223,7 @@ def main():
                     # Top 3 dans les normales (en s'assurant qu'ils sont différents de ceux dans anomalies)
                     top3_normales = (
                         normales[~normales['N° PS exécutant Statistique'].isin(top3_anomalies['N° PS exécutant Statistique'])]
-                        .groupby('N° PS exécutant Statistique')['Frequence_dist_suspecte']
+                        .groupby('N° PS exécutant Statistique')['Frequence_Distance_Suspecte']
                         .mean()
                         .nlargest(3)
                         .reset_index()
@@ -240,7 +238,7 @@ def main():
                     sns.barplot(
                         data=top3,
                         y='N° PS exécutant Statistique',
-                        x='Frequence_dist_suspecte',
+                        x='Frequence_Distance_Suspecte',
                         hue='Catégorie',
                         palette={'Anomalies': '#ff7f0e', 'Normales': '#1f77b4'},
                         edgecolor='black'
@@ -369,4 +367,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
