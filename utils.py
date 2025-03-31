@@ -8,7 +8,6 @@ import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
-import shap
 
 def process_fraud_data(df):
     df = df[(df['Quantité d\'acte - Prestation seule (pas presta. de réf.)'] > 0) &
