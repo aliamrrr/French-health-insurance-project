@@ -59,7 +59,7 @@ audioprotheses/
 2. Soyez sur d'avoir le fichier "points-extremes-des-departements-metropolitains-de-france.csv" dans votre dossier de travail
 3. Lancez l'application sur le terminal avec :
 ```bash
-streamlit run main.py
+streamlit run main.py --server.maxUploadSize 2000
 ```
 4. Suivez les instructions dans le navigateur qui s'ouvre automatiquement
 
