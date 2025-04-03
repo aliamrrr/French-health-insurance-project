@@ -343,16 +343,16 @@ def main():
                     normales_etablissement = normales[normales['N° PS exécutant Statistique'] == etablissement_normal_id]
 
                     # Calculer les remboursements totaux par mois pour anomalies et normales
-                    anomalies_mois = anomalies_etablissement.groupby(['Année de remboursement', 'Mois de remboursement'])['Dépenses par mois'].sum().reset_index()
-                    normales_mois = normales_etablissement.groupby(['Année de remboursement', 'Mois de remboursement'])['Dépenses par mois'].sum().reset_index()
+                    anomalies_mois = anomalies_etablissement.groupby(['Année de remboursement', 'Mois de remboursement'])['Depenses_Mensuelles'].sum().reset_index()
+                    normales_mois = normales_etablissement.groupby(['Année de remboursement', 'Mois de remboursement'])['Depenses_Mensuelles'].sum().reset_index()
 
                     # Tracer le graphique
                     fig, ax = plt.subplots(figsize=(12, 6))  # Créer un objet figure et axe
-                    sns.lineplot(data=anomalies_mois, x='Mois de remboursement', y='Dépenses par mois', label=f'Anomalies ({etablissement_anomalie_id})', color='red', marker='o', ax=ax)
-                    sns.lineplot(data=normales_mois, x='Mois de remboursement', y='Dépenses par mois', label=f'Normales ({etablissement_normal_id})', color='blue', marker='o', ax=ax)
+                    sns.lineplot(data=anomalies_mois, x='Mois de remboursement', y='Depenses_Mensuelles', label=f'Anomalies ({etablissement_anomalie_id})', color='red', marker='o', ax=ax)
+                    sns.lineplot(data=normales_mois, x='Mois de remboursement', y='Depenses_Mensuelles', label=f'Normales ({etablissement_normal_id})', color='blue', marker='o', ax=ax)
 
                     # Ajouter des détails au graphique
-                    ax.set_title(f'Dépenses par mois : {etablissement_anomalie_id} (Anomalies) vs {etablissement_normal_id} (Normales)')
+                    ax.set_title(f'Depenses_Mensuelles : {etablissement_anomalie_id} (Anomalies) vs {etablissement_normal_id} (Normales)')
                     ax.set_xlabel('Mois')
                     ax.set_ylabel('Dépenses')
                     ax.legend(title='Catégorie', loc='upper left')
